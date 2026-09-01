@@ -29,11 +29,11 @@ write_log() {
         return 0
     fi
 
-    FILES=$(git diff-tree --no-commit-id --name-status -r HEAD 2>/dev/null \
+    FILES=$(git diff-tree --no-commit-id --name-status -r --root HEAD 2>/dev/null \
             | awk '{printf "%s `%s`, ", $1, $2}' | sed 's/, $//')
     [ -z "$FILES" ] && FILES="_(no file changes)_"
 
-    STATS=$(git diff-tree --no-commit-id --numstat -r HEAD 2>/dev/null \
+    STATS=$(git diff-tree --no-commit-id --numstat -r --root HEAD 2>/dev/null \
             | awk '{a+=$1; d+=$2; n++} END {if (n) printf "%d file(s), +%d/-%d", n, a, d}')
     [ -z "$STATS" ] && STATS="_(no stats)_"
 
