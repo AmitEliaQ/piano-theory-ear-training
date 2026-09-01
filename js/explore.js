@@ -1,7 +1,7 @@
 // explore.js — Feature 1: visual/theory breakdown of scales.
 // Key + scale-type selectors drive a shared keyboard + degree table.
 
-import { ROOTS, ALL_SCALE_TYPES, SCALES, getScale, noteLabel, toMidi, intervalName } from './theory.js';
+import { ROOTS, ALL_SCALE_TYPES, noteLabel, intervalName, scaleWithMidi } from './theory.js';
 import { audioEngine } from './audio.js';
 import { PianoKeyboard } from './keyboard.js';
 
@@ -82,14 +82,7 @@ export function initExplore(container) {
   });
 
   function currentNotesWithMidi() {
-    const notes = getScale(rootPc, scaleType);
-    const rootPcVal = notes[0].pc;
-    // Start at octave 4; any note whose pitch class is lower than the
-    // root's wraps up an octave so the sequence is strictly ascending.
-    return notes.map((n) => ({
-      ...n,
-      midi: toMidi(n.pc, 4) + (n.pc < rootPcVal ? 12 : 0),
-    }));
+    return scaleWithMidi(rootPc, scaleType);
   }
 
   function render() {

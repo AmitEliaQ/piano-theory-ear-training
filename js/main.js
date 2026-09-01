@@ -1,6 +1,7 @@
 // main.js — app bootstrap: tab nav + view init.
 
 import { initExplore } from './explore.js';
+import { initQuiz } from './quiz.js';
 
 const views = {
   explore: document.getElementById('explore-view'),
@@ -17,3 +18,4 @@ document.getElementById('app-nav').addEventListener('click', (e) => {
 });
 
 initExplore(views.explore);
+initQuiz(views.quiz);

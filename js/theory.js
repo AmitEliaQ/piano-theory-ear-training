@@ -103,6 +103,20 @@ export function toMidi(pc, octave = 4) {
   return 12 * (octave + 1) + ((pc % 12) + 12) % 12;
 }
 
+/**
+ * Spell a scale AND place each note on a strictly-ascending MIDI range
+ * starting at `baseOctave`. Shared by explore.js and quiz.js so both get
+ * playable note sequences from the same logic.
+ */
+export function scaleWithMidi(rootPc, scaleType, baseOctave = 4) {
+  const notes = getScale(rootPc, scaleType);
+  const rootPcVal = notes[0].pc;
+  return notes.map((n) => ({
+    ...n,
+    midi: toMidi(n.pc, baseOctave) + (n.pc < rootPcVal ? 12 : 0),
+  }));
+}
+
 const INTERVAL_NAMES = [
   'Unison', 'Minor 2nd', 'Major 2nd', 'Minor 3rd', 'Major 3rd', 'Perfect 4th',
   'Tritone', 'Perfect 5th', 'Minor 6th', 'Major 6th', 'Minor 7th', 'Major 7th', 'Octave',
