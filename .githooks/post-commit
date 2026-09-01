@@ -2,7 +2,7 @@
 # Appends a summary of each commit to the Obsidian Dev Log.
 # MUST never fail a commit: every path exits 0.
 
-VAULT_DIR="/Users/amit/obsidian_files/Amit Project/Piano Theory App"
+VAULT_DIR="/Users/amit/dev/obsidian_files/Amit Project/Piano Theory App"
 LOG="$VAULT_DIR/02 - Dev Log.md"
 REPO_URL="https://github.com/AmitEliaQ/piano-theory-ear-training"
 
