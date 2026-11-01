@@ -10,7 +10,7 @@ const SCALE_OPTIONS = Object.entries(ALL_SCALE_TYPES); // [key, {label, ...}]
 function semitoneStepsLabel(notes) {
   const pcs = notes.map((n) => n.pc);
   const steps = pcs.map((pc, i) => {
-    const next = i + 1 < pcs.length ? pcs[i + 1] : pcs[0] + 12;
+    const next = i + 1 < pcs.length ? pcs[i + 1] : pcs[0];
     let diff = next - pc;
     if (diff <= 0) diff += 12;
     return diff;
