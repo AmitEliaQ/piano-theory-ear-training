@@ -4,6 +4,8 @@ Interactive web app for learning piano scales visually and training your ear on 
 
 **Live:** https://amiteliaq.github.io/piano-theory-ear-training/
 
+![Explore view](docs/screenshots/explore.png)
+
 ## Features
 
 1. **Explore** — pick any of the 12 keys and 12 scale types (major, natural/harmonic/melodic minor, all 7 modes, major/minor pentatonic, blues). See the scale lit up on a piano keyboard (root in magenta, scale tones in cyan), its semitone-step formula, a full degree table, and play it ascending, descending, or as a chord.
@@ -28,7 +30,7 @@ css/
   tokens.css         # design tokens (Stitch "Midnight Studio" design system)
   app.css            # component styles
 js/
-  theory.js           # note/scale/interval math (pure, tested)
+  theory.js           # note/scale/interval math (pure)
   audio.js             # Web Audio synth engine
   keyboard.js           # SVG piano widget
   explore.js              # Feature 1
